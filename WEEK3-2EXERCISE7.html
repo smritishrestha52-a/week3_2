@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>My CSS Advanced Page</title>
+
+<style>
+  :root {
+    --primary: #0f766e;
+    --accent: #14b8a6;
+    --bg: #f0fdfa;
+    --text: #134e4a;
+    --card: white;
+    --radius: 12px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary: #2dd4bf;
+      --accent: #5eead4;
+      --bg: #042f2e;
+      --text: #ccfbf1;
+      --card: #134e4a;
+    }
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: var(--primary);
+    color: rgba(255, 255, 255, 0.432);
+    z-index: 1000;
+  }
+
+  nav span {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  nav a {
+    color: rgba(255, 255, 255, 0.454);
+    text-decoration: none;
+    margin-left: 20px;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+  }
+
+  .hero {
+    min-height: 350px;
+    padding: 140px 40px 60px;
+    text-align: center;
+    background: linear-gradient(135deg, #ccdefb5f, #f0fdfa);
+    animation: fadeIn 1s ease;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .skills-section {
+    padding: 40px;
+  }
+
+  .sticky-h2 {
+    position: sticky;
+    top: 70px;
+    background: var(--bg);
+    padding: 12px 0;
+    margin-bottom: 20px;
+    z-index: 10;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 640px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .card {
+    background: var(--card);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(15, 118, 110, 0.2);
+  }
+
+  .card[data-icon]::before {
+    content: attr(data-icon);
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+</style>
+</head>
+
+<body>
+  <nav>
+    <span>SHRESTHA SMRITI</span>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">Skills</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Hello, I am [SHRESTHA SMRITI]</h1>
+    <p>[COMPUTER ENGINEERING] · Gachon University · Week 3 CSS Advanced</p>
+  </section>
+
+  <section class="skills-section">
+    <h2 class="sticky-h2">My Skills</h2>
+
+    <div class="grid">
+      <div class="card" data-icon="🌐">HTML5</div>
+      <div class="card" data-icon="🎨">CSS3</div>
+      <div class="card" data-icon="⚡">JavaScript</div>
+    </div>
+  </section>
+</body>
+</html>
